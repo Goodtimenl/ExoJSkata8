@@ -10,7 +10,14 @@
 // }
 // console.log(nomDeMaFonction(On remplace le paramètre par ce qu'on désire)) // 
 
-// CODE ICI
+const multi = (a, b) => {
+	return a * b;
+}
+
+let resultat = multi(2, 3);
+console.log('exo 1 : ', resultat)
+
+
 
 //----------------------------------------------------------------------------------------------//
 // EXERCICE 2
@@ -20,8 +27,13 @@
 // Pour rappel pour accéder à un élément d'un tableau on utilise la méthode [laplaceDuNombreDeL'élément] :
 // const monTableau = [1, 2, 3]
 // console.log(monTableau[0]) // 1
+function premierElement(tableau) {
+	return tableau[0];
+}
 
-// CODE ICI
+let monTableau = [1, 2, 3];
+let premier = premierElement(monTableau);
+console.log('exo 2 : ', premier);
 
 //----------------------------------------------------------------------------------------------//
 // EXERCICE 3
@@ -34,6 +46,15 @@
 // console.log(monTableau) // [1, 2]
 
 // CODE ICI
+function dernierElement(tableau) {
+	tableau.pop();
+}
+
+let secondTableau = [1, 2, 3];
+dernierElement(secondTableau);
+console.log('exo 3 : ', secondTableau)
+
+
 
 //----------------------------------------------------------------------------------------------//
 // EXERCICE 4
@@ -47,6 +68,21 @@
 // }
 
 // CODE ICI
+function sommeDeTout(tableau) {
+	let somme = 0;
+	for (let i = 0; i < tableau.length; i++) {
+		somme += tableau[i];
+	}
+	return somme
+}
+
+let troisiemeTabeau = [1, 2, 3]
+let resultatadd = sommeDeTout(troisiemeTabeau)
+console.log('exo 4 : ', resultatadd)
+
+
+
+
 
 //----------------------------------------------------------------------------------------------//
 
@@ -63,6 +99,18 @@
 
 // CODE ICI
 
+function retourneTout(premiereString) {
+	const monTableau1 = premiereString.split("")
+	const monTableauInverse1 = monTableau1.reverse("");
+	const maStringInversee = monTableauInverse1.join("");
+	return maStringInversee;
+}
+let resultatInverse = retourneTout("Hello");
+console.log('exo 5 : ', resultatInverse);
+
+
+
+
 //----------------------------------------------------------------------------------------------//
 
 // EXERCICE 6
@@ -74,6 +122,15 @@
 
 // CODE ICI
 
+function plusGrandNombre(tableauGrand) {
+	return Math.max(...tableauGrand)
+}
+
+let monTableauGrand = [1, 2, 3];
+let plusGrand = plusGrandNombre(monTableauGrand);
+console.log('Exo 6 : ', 'Le plus grand nombre est : ', plusGrand);
+
+
 //----------------------------------------------------------------------------------------------//
 
 // EXERCICE 7
@@ -84,6 +141,17 @@
 // console.log(Math.min(...monTableau)) // 1
 
 // CODE ICI
+
+function plusPetitNombre(tableauPetit) {
+	return Math.min(...tableauPetit)
+}
+
+let monTableauPetit = [1, 2, 3];
+let plusPetit = plusPetitNombre(monTableauPetit);
+console.log('Exo 7 : ', 'Le plus petit nombre est : ', plusPetit);
+
+
+
 
 //----------------------------------------------------------------------------------------------//
 
@@ -101,6 +169,16 @@
 
 // CODE ICI
 
+const maString = "Hello";
+const monNouveauTableau = maString.split("");
+const monNouveauTableauFiltre = monNouveauTableau.filter((element) => {
+	return !(element == "a" || element == "e" || element == "i" || element == "u" || element == "y" || element == "o");
+});
+
+console.log('Exo 8 : ', monNouveauTableauFiltre.join(''));
+
+
+
 //----------------------------------------------------------------------------------------------//
 
 // EXERCICE 9
@@ -112,6 +190,17 @@
 // console.log(monTableau.sort()) // [1, 2, 3]
 
 // CODE ICI
+
+let monTableauOrdonne = [1, 3, 2, 5, 4];
+
+
+function trierCroissant(tableau) {
+	return tableau.sort((a, b) => a - b);
+}
+
+console.log('exo 9 :', 'Tableau trié par ordre croissant :', trierCroissant(monTableauOrdonne));
+
+
 
 //----------------------------------------------------------------------------------------------//
 
@@ -130,6 +219,20 @@
 
 // CODE ICI
 
+
+function rotations(maEniemeString) {
+	const monAutreTableau = [];
+
+	for (let i = 0; i < maEniemeString.length; i++) {
+		const maStringRenversee = maEniemeString.substring(i) + maEniemeString.substring(0, i);
+		monAutreTableau.push(maStringRenversee);
+	}
+	return monAutreTableau;
+}
+const maEniemeString = "Hello";
+console.log('Exo 10 : ', rotations(maEniemeString));
+
+
 //----------------------------------------------------------------------------------------------//
 
 // EXERCICE 11
@@ -144,6 +247,18 @@
 
 // CODE ICI
 
+const encoreUnTableau = [1, 2, 3];
+const tableauModifie = ajouterUnATous(encoreUnTableau);
+
+function ajouterUnATous(tableauAjout) {
+	return tableauAjout.map((element) => element + 1);
+}
+
+console.log('Exo 11 : ', 'Tableau modifié :', tableauModifie);
+
+
+
+
 //----------------------------------------------------------------------------------------------//
 
 // EXERCICE 12
@@ -157,6 +272,15 @@
 // })
 
 // CODE ICI
+
+function longueur(tableauLongeur) {
+	return tableauLongeur.map((element) => element.length);
+}
+
+const nouveauNouveauTableau = ["Hello", "World"];
+const longueurs = longueur(nouveauNouveauTableau);
+console.log('Exo 12', 'Longueurs des chaînes :', longueurs);
+
 
 //----------------------------------------------------------------------------------------------//
 
@@ -173,6 +297,17 @@
 
 // CODE ICI
 
+function luluLaTortue(tableauDeLaTortue) {
+	return tableauDeLaTortue.map((element) => element.charAt(0));
+}
+const tortue = ["Hello", "World"];
+const resultatDeLaTortue = luluLaTortue(tortue);
+console.log('Exo 13 : ', 'Premières lettres des chaînes :', resultatDeLaTortue);
+
+
+
+
+
 //----------------------------------------------------------------------------------------------//
 
 // EXERCICE 14
@@ -183,6 +318,16 @@
 
 
 // CODE ICI
+
+function luluLaTortue2(tableauDeLaTortue) {
+	return tableauDeLaTortue.map((element) => element.charAt(element.length - 1));
+}
+const tortue2 = ["Hello", "World"];
+const resultatDeLaTortue2 = luluLaTortue2(tortue2);
+console.log('Exo 14 : ', 'Premières lettres des chaînes :', resultatDeLaTortue2);
+
+
+
 
 //----------------------------------------------------------------------------------------------//
 
@@ -308,9 +453,9 @@
 
 // EXERCICE 21 
 
- //Écrivez une fonction `anagram` qui prend deux chaînes et renvoie un booléen indiquant si les chaînes sont des anagrammes l'une de l'autre. Deux chaînes sont des anagrammes l'une de l'autre si elles contiennent les caractères, quel que soit l'ordre des caractères. Par exemple, "listen" et "silent" sont des anagrammes l'une de l'autre
+//Écrivez une fonction `anagram` qui prend deux chaînes et renvoie un booléen indiquant si les chaînes sont des anagrammes l'une de l'autre. Deux chaînes sont des anagrammes l'une de l'autre si elles contiennent les caractères, quel que soit l'ordre des caractères. Par exemple, "listen" et "silent" sont des anagrammes l'une de l'autre
 
- // Indice : Oubliez pas de transformer les string en tableau pour pouvoir les trier et les comparer. Utilisez la méthode split() pour transformer une string en tableau et la méthode sort() pour trier un tableau. Puis comparez les deux tableaux avec la méthode join() qui permet de transformer un tableau en string.
+// Indice : Oubliez pas de transformer les string en tableau pour pouvoir les trier et les comparer. Utilisez la méthode split() pour transformer une string en tableau et la méthode sort() pour trier un tableau. Puis comparez les deux tableaux avec la méthode join() qui permet de transformer un tableau en string.
 
 
 // CODE ICI
@@ -395,7 +540,7 @@
 
 // EXERCICE 23
 
- //Écrivez une fonction qui prend un tableau de 10 entiers (entre 0 et 9) et renvoie une chaîne de caractères sous la forme d'un numéro de téléphone.
+//Écrivez une fonction qui prend un tableau de 10 entiers (entre 0 et 9) et renvoie une chaîne de caractères sous la forme d'un numéro de téléphone.
 // Exemple :
 // createPhoneNumber([1,2,3,4,5,6,7,8,9,0]) // "(123) 456-7890"
 // Indice : Utilisez la méthode slice() pour découper le tableau en plusieurs morceaux. Puis utilisez la méthode join() pour transformer un tableau en string.
@@ -468,7 +613,7 @@
 
 // EXERCICE 25
 
- //Écrivez une fonction qui prend un tableau de string et renvoie un tableau de string triées par ordre alphabétique.
+//Écrivez une fonction qui prend un tableau de string et renvoie un tableau de string triées par ordre alphabétique.
 // Exemple :
 // sortString(["Banana", "Orange", "Apple", "Mango"]) // ["Apple", "Banana", "Mango", "Orange"]
 // sortString(["lait", "beurre", "fromage", "yaourt"]) // ["beurre", "fromage", "lait", "yaourt"]
