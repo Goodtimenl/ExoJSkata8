@@ -296,12 +296,13 @@ console.log('Exo 12', 'Longueurs des chaînes :', longueurs);
 // })
 
 // CODE ICI
+const tortue = ["Hello", "World"];
+const resultatDeLaTortue = luluLaTortue(tortue);
+
 
 function luluLaTortue(tableauDeLaTortue) {
 	return tableauDeLaTortue.map((element) => element.charAt(0));
 }
-const tortue = ["Hello", "World"];
-const resultatDeLaTortue = luluLaTortue(tortue);
 console.log('Exo 13 : ', 'Premières lettres des chaînes :', resultatDeLaTortue);
 
 
@@ -338,6 +339,17 @@ console.log('Exo 14 : ', 'Premières lettres des chaînes :', resultatDeLaTortue
 // Pour cette exercice on va utiliser la méthode filter() qui permet de filtrer un tableau, hésitez pas à regarder l'exercice 8 pour voir comment ça fonctionne. Sauf qu'ici on va filtrer en fonction de la longueur de la string. Incice : la méthode length() permet de récupérer la longueur d'une string.
 
 // CODE ICI
+const tableauLongeur = ["Hello", "World", "Test", "Salut", "Yo"];
+const resultatLongeur = longeurString(tableauLongeur);
+
+
+function longeurString(tableauString) {
+	return tableauString.filter((element) => element.length >= 5);
+}
+console.log('Exo 15 : ', 'Voici les strings de plus de 5 caractere', resultatLongeur);
+
+
+
 
 //----------------------------------------------------------------------------------------------//
 
@@ -353,6 +365,11 @@ console.log('Exo 14 : ', 'Premières lettres des chaînes :', resultatDeLaTortue
 
 // CODE ICI
 
+const monTableauSomme = [1, 2, 3];
+const somme = monTableauSomme.reduce((accumulateur, element) => accumulateur + element, 0);
+console.log('Exo 16 : ', 'Somme des nombres :', somme);
+
+
 //----------------------------------------------------------------------------------------------//
 
 // EXERCICE 17
@@ -367,6 +384,22 @@ console.log('Exo 14 : ', 'Premières lettres des chaînes :', resultatDeLaTortue
 
 // CODE ICI
 
+// const tableauUn = ["Hello", "World"];
+// const tableauDeux = ["Test", "Salut"];
+// const monTableauConcat = tableauUn.concat(tableauDeux)
+// console.log('Exo 17 : ', 'Le résultat de la concatenation des deux tableaux est : ', monTableauConcat);
+
+const tableauUn = ["Hello", "World"];
+const tableauDeux = ["Test", "Salut"];
+const resultatConcatenation = concatenerTableaux(tableauUn, tableauDeux);
+
+function concatenerTableaux(tableauUn, tableauDeux) {
+	const monTableauConcat = tableauUn.concat(tableauDeux);
+	return monTableauConcat;
+}
+
+console.log('Exo 17 : ', 'Le résultat de la concatenation des deux tableaux est : ', resultatConcatenation);
+
 //----------------------------------------------------------------------------------------------//
 
 // EXERCICE 18
@@ -376,6 +409,9 @@ console.log('Exo 14 : ', 'Premières lettres des chaînes :', resultatDeLaTortue
 // Pour cette exercice on va utiliser la méthode filter() qui permet de filtrer un tableau, hésitez pas à regarder l'exercice 8 pour voir comment ça fonctionne. Sauf qu'ici on va filtrer en fonction de la présence de la lettre "e". Indice : la méthode includes() permet de savoir si une string contient une lettre ou un mot.
 
 // CODE ICI
+
+
+
 
 //----------------------------------------------------------------------------------------------//
 
