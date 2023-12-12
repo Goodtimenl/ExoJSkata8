@@ -410,7 +410,14 @@ console.log('Exo 17 : ', 'Le résultat de la concatenation des deux tableaux est
 
 // CODE ICI
 
+function filtreStringE(tabString) {
+	return tabString.filter(string => string.includes('e'));
+}
 
+const tableauAnimaux = ["Poulet", "Chat", "Chien", "Cheval"];
+const resultaTableau = filtreStringE(tableauAnimaux);
+
+console.log('Exo 18 : ', 'Le résultat de la concatenation des deux tableaux est : ', resultaTableau);
 
 
 //----------------------------------------------------------------------------------------------//
@@ -422,6 +429,16 @@ console.log('Exo 17 : ', 'Le résultat de la concatenation des deux tableaux est
 // Indice : il y a plusieurs façon de faire, soit avec un for, soit avec la méthode filter() une fois ça fait utilise la méthode sort() qui permet de trier un tableau.
 
 // CODE ICI
+
+function filterPairs(tabNombres) {
+	const nombresPair = tabNombres.filter(number => number % 2 === 0);
+	return nombresPair.sort((a, b) => a - b);
+}
+
+const tableauAvecNombres = [2, 9, 6, 5, 6];
+const resultatNombresPairs = filterPairs(tableauAvecNombres);
+
+console.log('Exo 19 : ', 'Le résultat de la concatenation des deux tableaux est : ', resultatNombresPairs);
 
 //----------------------------------------------------------------------------------------------//
 
@@ -455,6 +472,24 @@ console.log('Exo 17 : ', 'Le résultat de la concatenation des deux tableaux est
 
 // CODE ICI
 
+
+function findShort(phrase) {
+	const tableauDeMots = phrase.split(" ");
+	const tableauLongueur = tableauDeMots.map((element) => {
+		return element.length
+	}
+	)
+
+	let tableauTri = tableauLongueur.sort((a, b) => {
+		return a - b
+	}
+	)
+	return tableauTri[0]
+}
+
+
+console.log(findShort("Prachett is the best author in the world"));
+console.log(findShort("The quick brown fox jumps over the lazy dog"));
 
 
 
