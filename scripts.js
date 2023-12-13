@@ -531,9 +531,20 @@ console.log(findShort("The quick brown fox jumps over the lazy dog"));
 
 // CODE ICI
 
+function anagram(string1, string2) {
+	const trisString1 = string1.split('').sort().join('');
+	console.log(trisString1)
+	const trisString2 = string2.split('').sort().join('');
+	console.log(trisString2)
+	return trisString1 === trisString2;
+}
 
 
+const reste1 = anagram("listen", "silent");
+console.log(reste1);
 
+const reste2 = anagram("hello", "world");
+console.log(reste2);
 
 
 
@@ -573,6 +584,16 @@ console.log(findShort("The quick brown fox jumps over the lazy dog"));
 
 // CODE ICI
 
+function enleveDoubleLettre(string) {
+	let split = string.split('');
+	let filtreSplit = split.filter((splitss, index) => splitss !== split[index + 1]); //(Merci chat GPT pour le coup de main pour cette ligne)
+	let resultatSplit = filtreSplit.join('');
+
+	return resultatSplit;
+}
+
+console.log(enleveDoubleLettre("google"));
+console.log(enleveDoubleLettre("Hello World!"));
 
 
 
