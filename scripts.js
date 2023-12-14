@@ -638,8 +638,16 @@ console.log(enleveDoubleLettre("Hello World!"));
 // Indice : Utilisez la méthode slice() pour découper le tableau en plusieurs morceaux. Puis utilisez la méthode join() pour transformer un tableau en string.
 
 // CODE ICI
+function dixEntiers(Entiers) {
+	const tableauEntiers1 = Entiers.slice(0, 3).join('');
+	const tableauEntiers2 = Entiers.slice(3, 6).join('');
+	const tableauEntiers3 = Entiers.slice(6).join('');
 
+	return `(${tableauEntiers1}) ${tableauEntiers2}-${tableauEntiers3}`;
+}
 
+const numeroDeTel = dixEntiers([1, 2, 3, 4, 5, 6, 7, 8, 9, 0]);
+console.log(numeroDeTel)
 
 
 
@@ -676,7 +684,21 @@ console.log(enleveDoubleLettre("Hello World!"));
 
 // CODE ICI
 
+function findMissingLetter(tableauDeLettres) {
+	let lettreQuiManque = tableauDeLettres[0].charCodeAt(0);
 
+	for (let i = 0; i < tableauDeLettres.length; i++) {
+		if (tableauDeLettres[i].charCodeAt(0) !== lettreQuiManque) {
+			return String.fromCharCode(lettreQuiManque);
+		}
+		lettreQuiManque++;
+	}
+	return undefined;
+}
+
+
+console.log(findMissingLetter(["a", "b", "c", "d", "f"]));
+console.log(findMissingLetter(["O", "Q", "R", "S"]));
 
 
 
@@ -715,7 +737,16 @@ console.log(enleveDoubleLettre("Hello World!"));
 
 // CODE ICI
 
+function triAlphabetique(tabAtrier) {
+	tabAtrier.sort(function (a, b) {
+		return a.localeCompare(b);
+	});
 
+	return tabAtrier;
+}
+
+console.log(triAlphabetique(["Banana", "Orange", "Apple", "Mango"]));
+console.log(triAlphabetique(["lait", "beurre", "fromage", "yaourt"]));
 
 
 
@@ -744,3 +775,373 @@ console.log(enleveDoubleLettre("Hello World!"));
 
 // console.log(sortString(["Banana", "Orange", "Apple", "Mango"]))
 
+//----------------------------------------------------------------------------------------------//
+
+// EXERCICE 26
+// Écris une fonction qui étant donné deux angles d'un triangle renvoie la mesure du troisième angle.
+// ( Rappel : la somme des trois angles d'un triangle est toujours égale à 180 degrés )
+// Exemple :
+// otherAngle(30, 60) // 90
+// otherAngle(60, 60) // 60
+// Indice : Pour trouver le troisième angle, tu dois soustraire la somme des deux angles donnés à 180 degrés.
+
+// CODE ICI
+
+function thirdAngle(a, b) {
+	return 180 - a - b;
+  }
+  
+  console.log(thirdAngle(90, 30));
+  console.log(thirdAngle(20, 80));
+  
+
+
+
+
+
+//----------------------------------------------------------------------------------------------//
+
+// EXERCICE 27
+// Écris une fonction qui peut déterminer si une année est une année bissextile ou non. Elle doit renvoyer true si c'est le cas, sinon false.
+// ( Rappel : Une année bissextile est une année contenant 366 jours au lieu de 365. Elle est donc plus longue qu'une année normale. Une année bissextile a lieu tous les 4 ans. )
+// Exemple :
+// isLeapYear(2020) // true
+// isLeapYear(2021) // false
+// Indice : Pour savoir ça tu peux utiliser le modulo. Si une année est divisible par 4 et que le reste de la division est égal à 0, alors c'est une année bissextile.
+
+// CODE ICI
+
+function isLeapYear(year) {
+	if (year % 4 === 0 && year % 100 !== 0 || year % 400 === 0) {
+	  return true;
+	} else {
+	  return false;
+	}
+  }
+  
+  console.log(isLeapYear(2020));
+  console.log(isLeapYear(2021));
+
+
+//----------------------------------------------------------------------------------------------//
+
+// EXERCICE 28
+
+// Voici un example de tableau d'animaux. Écris une fonction qui à partir d'un tableau similaire reçu en paramètre renvoie un nouveau tableau qui lui même contient deux sous-tableaux. Le premier sous-tableau doit contenir les animaux domestiques et le second les animaux sauvages. Les animaux domestiques doivent être triés par ordre alphabétique et les animaux sauvages par ordre alphabétique inversé.
+
+const animals = [
+	{ name: "Panda", type: "Wild" },
+	{ name: "Cat", type: "Domestic" },
+	{ name: "Turtle", type: "Domestic" },
+	{ name: "Dog", type: "Domestic" },
+	{ name: "Crocodile", type: "Wild" },
+	{ name: "Eagle", type: "Wild" },
+	{ name: "Donkey", type: "Domestic" },
+	{ name: "Pigeon", type: "Domestic" },
+	{ name: "Monkey", type: "Wild" }
+  ]
+  
+  // Exemple :
+  // sortAnimals(animals) // [["Cat", "Dog", "Donkey", "Pigeon", "Turtle"], ["Eagle", "Monkey", "Panda", "Crocodile"]]
+  // Indice : Oubliez pas que tu peux créer des variables qui contiennent des tableaux vides et que tu peux ajouter des éléments à un tableau avec la méthode push(). Mais vu que tu dois analyser le tableau d'animaux pour le trier, tu dois utiliser une boucle et faire des conditions if pour savoir si l'animal est domestique ou sauvage. Et tu dois trier les animaux domestiques par ordre alphabétique et les animaux sauvages par ordre alphabétique inversé. Pour trier un tableau par ordre alphabétique tu peux utiliser la méthode sort(). Pour trier un tableau par ordre alphabétique inversé tu peux utiliser la méthode reverse().
+  
+  // CODE ICI
+  
+  
+  
+  
+  
+  //-----------------------------------------------SOLUTIONS-----------------------------------------------//
+  
+  // const sortAnimals = (animals) => {
+  //     let tableauDomestic = []
+  //     let tableauWild = []
+  //     let tableauFinal = []
+  //     for (let i = 0; i < animals.length; i++) {
+  //         if (animals[i].type === "Domestic") {
+  //         tableauDomestic.push(animals[i].name)
+  //         } else {
+  //         tableauWild.push(animals[i].name)
+  //         }
+  //     }
+  //     tableauDomestic.sort()
+  //     tableauWild.sort()
+  //     tableauWild.reverse()
+  //     tableauFinal.push(tableauDomestic)
+  //     tableauFinal.push(tableauWild)
+  //     return tableauFinal
+  //     }
+  
+  // console.log(sortAnimals(animals))
+  
+  //----------------------------------------------------------------------------------------------//
+  
+  
+  
+  
+  // EXERCICE 29
+  
+  // Un employé de théatre souhaite obtenir la liste de tous les sièges de sa salle principal. Dans la salle les places sont réparties comme suit : 
+  // - Il y a 26 colonnes de sièges, numérotées de "1" à "26".
+  // - Chaque colonne contient 100 sièges, numérotés de "1" à "100".
+  
+  // Complète la function theatreSieges() qui doit renvoyer un tableau où chaque sous-tableau répertorie les positions des siègnes dans une rangée. 
+  // Exemple  du résultat attendu :
+  // [
+	  // ["1-1", "1-2", "1-3", ..., "1-99", "1-100"],
+	  // ["2-1", "2-2", "2-3", ..., "2-99", "2-100"],
+	  // ["3-1", "3-2", "3-3", ..., "3-99", "3-100"],
+	  // ...
+	  // ["26-1", "26-2", "26-3", ..., "26-99", "26-100"]
+  // ]
+  
+  // Indice : Tu dois utiliser deux boucles imbriquées pour créer les sous-tableaux. La première boucle doit parcourir les colonnes et la seconde boucle doit parcourir les sièges de chaque colonne. 
+  
+  // CODE ICI
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  //-----------------------------------------------SOLUTIONS-----------------------------------------------//
+  
+  // const theatreSieges = () => {
+  //     let tableau = []
+  //     for (let i = 1; i <= 26; i++) {
+  //         let tableau2 = []
+  //         for (let j = 1; j <= 100; j++) {
+  //             tableau2.push(`${i}-${j}`)
+  //         }
+  //         tableau.push(tableau2)
+  //     }
+  //     return tableau
+  // }
+  
+  // console.log(theatreSieges())
+  
+  //----------------------------------------------------------------------------------------------//
+  
+  // EXERCICE 30
+  
+  /*
+  Notre équipe de football participe à un tournoi dans lequel elle a joué 10 matchs.
+  Les résultats du match sont notés "3:0" : le premier chiffre est le nombre de buts de **notre** équipe ; le second est celui de l'autre équipe.
+  Pour connaître le score de notre équipe, nous suivons ces règles :
+  - Victoire : 3pts
+  - Nul : 1pt
+  - Défaite : 0pt
+  Étant donné un tableau avec les résultats des matchs, écris une fonction qui renverra notre score.
+  Pour exemple, si ta fonction recevait le tableau ci-dessous en paramètre, tu devrais obtenir 13 points.
+  
+  ["1:0", "2:0", "3:0", "4:4", "2:2", "3:3", "1:4", "2:3", "2:4", "3:3"]
+  */
+  //Indice : Tu dois utiliser une boucle for pour parcourir le tableau et une condition if pour savoir si notre équipe a gagné, perdu ou fait match nul. Et tu dois ajouter les points de chaque match à une variable score qui doit être initialisée à 0. Et tu dois retourner la variable score à la fin de la fonction.
+  
+  // CODE ICI
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  //-----------------------------------------------SOLUTIONS-----------------------------------------------//
+  
+  // const footballPoints = (tableau) => {
+  //     let score = 0
+  //     for (let i = 0; i < tableau.length; i++) {
+  //         if (tableau[i][0] > tableau[i][2]) {
+  //             score += 3
+  //         } else if (tableau[i][0] === tableau[i][2]) {
+  //             score += 1
+  //         }
+  //     }
+  //     return score
+  // }
+  // console.log(footballPoints(["1:0", "2:0", "3:0", "4:4", "2:2", "3:3", "1:4", "2:3", "2:4", "3:3"]))
+  
+  //----------------------------------------------------------------------------------------------//
+  
+  
+  // EXERCICE 31
+  
+  /*
+  Écris une fonction avec deux paramètres. Ces paramètres sont des tableaux contenant des nombres **stockés sous forme de chaînes de caractères**.
+  Ta fonction doit renvoyer **un** tableau, où chaque élément est la somme des éléments des deux arguments correspondants (c'est-à-dire : le premier élément du tableau résultat est égal au premier élément du premier paramètre plus le premier élément du deuxième paramètre) .
+  Remarque : Si un élément est vide, il doit compter pour 0.
+  Ex: 
+  sumArr( ["1", "2", "3"], ["2", "4", "1"] ) should return ["3", "6", "4"]
+  sumArr( ["2", "7", "3"], ["2", "4", "9"] ) should return ["4", "11", "12"]
+  sumArr( ["2", "7", "3", "8", "2"], ["2", "4", "9"] ) should return ["4", "11", "12", "8", "2"]
+  sumArr( ["2", "5", "3"], ["2", "4", "9", "5", "5"] ) should return ["4", "9", "12", "5", "5"]
+  */
+  
+  //Indice : Tu dois utiliser une boucle for pour parcourir les tableaux et une condition if pour savoir si un élément est vide. Si un élément est vide tu dois le remplacer par 0. Et tu dois ajouter les éléments des deux tableaux à une variable tableau3 qui doit être initialisée à un tableau vide. Et tu dois retourner le tableau3 à la fin de la fonction.
+  
+  // CODE ICI
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  //-----------------------------------------------SOLUTIONS-----------------------------------------------//
+  
+  // const sumArr = (tableau1, tableau2) => {
+  //     let tableau3 = []
+  //     for (let i = 0; i < tableau1.length; i++) {
+  //         if (tableau1[i] === "") {
+  //             tableau1[i] = 0
+  //         }
+  //         if (tableau2[i] === "") {
+  //             tableau2[i] = 0
+  //         }
+  //         tableau3.push(parseInt(tableau1[i]) + parseInt(tableau2[i]))
+  //     }
+  //     return tableau3
+  // }
+  
+  // console.log(sumArr(["1", "2", "3"], ["2", "4", "1"]))
+  
+  //----------------------------------------------------------------------------------------------//
+  
+  // EXERCICE 32
+  
+  // Écris une fonction generatedCharacter qui crée de manière aléatoires des personnages donjon et dragon avec une classe et des noms de personnages. La fonction doit renvoyer un tableau de personnages.
+  // Exemple du résultat attendu :
+  // [
+  //   ["Aldric", "barbarian"],
+  //   ["Dolgrin", "bard"],
+  //   ["Ernst", "cleric"],
+  //   ["Gellius", "druid"],
+  //   ["Gorstag", "fighter"]
+  // ]
+  
+  // Indice : Tu dois créer un tableau vide et le remplir avec des tableaux qui contiennent un nom et une classe. Pour créer un nom aléatoire tu dois créer un tableau de noms et utiliser la méthode Math.random() pour récupérer un nom aléatoire dans le tableau de noms. Pour créer une classe aléatoire tu dois créer un tableau de classes et utiliser la méthode Math.random() pour récupérer une classe aléatoire dans le tableau de classes. Et tu dois faire une boucle pour créer 10 personnages.
+  
+  // CODE ICI
+  
+  let tableauName = ["Aldric", "Dolgrin", "Ernst", "Gellius", "Gorstag", "Hagar", "Jozan", "Kef", "Leve", "Morn", "Perrin", "Reed", "Rulf", "Shandar", "Taman", "Urth"]
+  let tableauClass = ["barbarian", "bard", "cleric", "druid", "fighter", "monk", "paladin", "ranger", "rogue", "sorcerer", "warlock", "wizard"]
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  //-----------------------------------------------SOLUTIONS-----------------------------------------------//
+  // const generatedCharacter= () => {
+  //     let tableau = []
+  //     for (let i = 0; i < 10; i++) {
+  //         let tableau2 = []
+  //         let randomName = tableauName[Math.floor(Math.random() * tableauName.length)]
+  //         let randomClass = tableauClass[Math.floor(Math.random() * tableauClass.length)]
+  //         tableau2.push(randomName)
+  //         tableau2.push(randomClass)
+  //         tableau.push(tableau2)
+  //     }
+  //     return tableau
+  // }
+  
+  // console.log(generatedCharacter())
+  
+  
+  //-----------------------------------------------SOLUTIONS-----------------------------------------------//
+  
+  // Explication ici nous allons résoudre l'algo avec un .map(). Pourquoi ? Car le .map() permet de parcourir un tableau et de retourner un nouveau tableau avec les éléments modifiés. Donc ici nous allons parcourir le tableauName avec un .map() et pour chaque élément du tableauName nous allons créer un tableau avec un nom aléatoire et une classe aléatoire. Et nous allons retourner ce tableau. Donc le .map() va créer un nouveau tableau avec des tableaux qui contiennent un nom aléatoire et une classe aléatoire. Et nous allons stocker ce nouveau tableau dans une variable tableau. Et nous allons retourner ce tableau à la fin de la fonction.
+  
+  // Comme vous pouvez le voir il y a plusieurs façon de réussir à avoir le résultat attendu d'un algo. Il y a pas de bonne ou de mauvaise façon de faire. Il y a juste des façons plus optimisées que d'autres. Et il y a des façons plus simples que d'autres. Mais le plus important c'est de réussir à trouver une solution qui fonctionne. Et si vous avez réussi à trouver une solution qui fonctionne, c'est déjà très bien. 
+  
+  // const generatedCharacter = () => {
+  //     let tableau = []
+  //     tableauName.map((element) => {
+  //         let tableau2 = []
+  //         let randomClass = tableauClass[Math.floor(Math.random() * tableauClass.length)]
+  //         tableau2.push(element)
+  //         tableau2.push(randomClass)
+  //         tableau.push(tableau2)
+  //     })
+  //     return tableau
+  // }
+  
+  // console.log(generatedCharacter())
+  
+  //----------------------------------------------------------------------------------------------//
+  
+  // EXERCICE 33
+  
+  //Écrivez une fonction nommée "findMissingLetter" qui prend en paramètre un tableau d'une série de lettres (en tant que chaînes de caractères) et qui renvoie la lettre manquante de la série. Si aucune lettre n'est manquante, la fonction doit renvoyer "undefined".
+  // Exemple :
+  // findMissingLetter(["a","b","c","d","f"]) // "e"
+  // findMissingLetter(["O","Q","R","S"]) // "P"
+  
+  //Indice : Oubliez pas la méthode charCodeAt() est utile pour récupérer le code unicode d'un caractère.
+  //Le unicode est une norme informatique qui permet de représenter des caractères de toutes les langues du monde. Chaque caractère possède un code unicode qui lui est propre. Par exemple, le code unicode de "A" est 65, le code unicode de "B" est 66, le code unicode de "C" est 67, etc. Pour récupérer le code unicode d'un caractère vous devez utiliser la méthode charCodeAt(). Cette méthode prend en paramètre l'index du caractère dans la string. Par exemple, si vous voulez récupérer le code unicode du premier caractère de la string vous devez utiliser la méthode charCodeAt(0). Si vous voulez récupérer le code unicode du deuxième caractère de la string vous devez utiliser la méthode charCodeAt(1). Et ainsi de suite.
+  
+  
+  
+  // CODE ICI
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  //-----------------------------------------------SOLUTIONS-----------------------------------------------//
+  
+  
+  // const findMissingLetter = (tableau) => {
+  //     let tableauUnicode = tableau.map((element) => {
+  //         return element.charCodeAt()
+  //     })
+  //     for (let i = 0; i < tableauUnicode.length; i++) {
+  //         if (tableauUnicode[i] !== tableauUnicode[i + 1] - 1) {
+  //             return String.fromCharCode(tableauUnicode[i] + 1)
+  //         }
+  //     }
+  // }
+  
+  // console.log(findMissingLetter(["a","b","c","d","f"]))
