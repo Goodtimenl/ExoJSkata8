@@ -819,8 +819,8 @@ function isLeapYear(year) {
 	}
   }
   
-  console.log(isLeapYear(2020));
-  console.log(isLeapYear(2021));
+  console.log('Exo 27 : ' , isLeapYear(2020));
+  console.log('Exo 27b : ', isLeapYear(2021));
 
 
 //----------------------------------------------------------------------------------------------//
@@ -840,6 +840,29 @@ const animals = [
 	{ name: "Pigeon", type: "Domestic" },
 	{ name: "Monkey", type: "Wild" }
   ]
+
+  function sortAnimals(animalsArray) {
+    const domesticAnimals = [];
+    const wildAnimals = [];
+  
+    animalsArray.forEach(animal => {
+      if (animal.type === "Domestic") {
+        domesticAnimals.push(animal.name);
+      } else if (animal.type === "Wild") {
+        wildAnimals.push(animal.name);
+      }
+    });
+
+    domesticAnimals.sort();
+  
+    wildAnimals.sort().reverse();
+  
+    return [domesticAnimals, wildAnimals];
+  }
+
+  console.log('exo 28 : ' , sortAnimals(animals));
+
+
   
   // Exemple :
   // sortAnimals(animals) // [["Cat", "Dog", "Donkey", "Pigeon", "Turtle"], ["Eagle", "Monkey", "Panda", "Crocodile"]]
@@ -901,19 +924,22 @@ const animals = [
   
   
   
+  function siegesDeTheatre() {
+    const totalColonnes = 26;
+    const totalSiegesParColonne = 100;
+    const sieges = [];
   
+    for (let colonne = 1; colonne <= totalColonnes; colonne++) {
+      const siegesColonne = [];
+      for (let siege = 1; siege <= totalSiegesParColonne; siege++) {
+        siegesColonne.push(`${colonne}-${siege}`);
+      }
+      sieges.push(siegesColonne);
+    }
   
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
+    return sieges;
+  }
+  console.log('exo 29 : ', siegesDeTheatre());
   
   
   
@@ -952,24 +978,30 @@ const animals = [
   //Indice : Tu dois utiliser une boucle for pour parcourir le tableau et une condition if pour savoir si notre équipe a gagné, perdu ou fait match nul. Et tu dois ajouter les points de chaque match à une variable score qui doit être initialisée à 0. Et tu dois retourner la variable score à la fin de la fonction.
   
   // CODE ICI
+    
+  function scoreChampionat(resultats) {
+    let score = 0;
+  
+    for (let i = 0; i < resultats.length; i++) {
+      const match = resultats[i].split(":");
+      const butsNotreEquipe = parseInt(match[0]);
+      const butsAdversaire = parseInt(match[1]);
+  
+      if (butsNotreEquipe > butsAdversaire) {
+        score += 3;
+      } else if (butsNotreEquipe === butsAdversaire) {
+        score += 1;
+      }
+    }
+  
+    return score;
+  }
+  
+  const resultats = ["1:0", "2:0", "3:0", "4:4", "2:2", "3:3", "1:4", "2:3", "2:4", "3:3"];
+  console.log('exo 30 : ', 'Le résultat du championat est : ', scoreChampionat(resultats));
   
   
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
+
   //-----------------------------------------------SOLUTIONS-----------------------------------------------//
   
   // const footballPoints = (tableau) => {
@@ -1005,15 +1037,26 @@ const animals = [
   
   // CODE ICI
   
+  function tab(tab1, tab2) {
+    let tableauResultat = [];
+    for (let i = 0; i < tab1.length; i++) {
+      const val1 = tab1[i] ? parseInt(tab1[i], 10) : 0;
+      const val2 = tab2[i] ? parseInt(tab2[i], 10) : 0;
+      tableauResultat.push((val1 + val2).toString());
+    }
   
   
+    for (let i = tab1.length; i < tab2.length; i++) {
+      tableauResultat.push(tab2[i]);
+    }
   
+    return tableauResultat;
+  }
   
-  
-  
-  
-  
-  
+  console.log('exo 31 : ', tab(["1", "2", "3"], ["2", "4", "1"]));
+  console.log('exo 31a : ', tab(["2", "7", "3"], ["2", "4", "9"]));
+  console.log('exo 31b : ', tab(["2", "7", "3", "8", "2"], ["2", "4", "9"])); 
+  console.log('exo 31c : ', tab(["2", "5", "3"], ["2", "4", "9", "5", "5"]));
   
   //-----------------------------------------------SOLUTIONS-----------------------------------------------//
   
